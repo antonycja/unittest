@@ -9,7 +9,7 @@ class TestEmployee(unittest.TestCase):
         -It's a way of defining constants once
         """
         self.emp_1 = Employee("Anton", "Maposa", 500000)
-        self.emp_2 = Employee("Moses", "Kapapa", "20000")
+        self.emp_2 = Employee("Moses", "Kapapa", 20000)
         
     def tearDown(self):
         """
@@ -27,8 +27,10 @@ class TestEmployee(unittest.TestCase):
         self.assertEqual(self.emp_2.fullname, "Moses Kapapa")
         
     def test_apply_raise(self):
-        self.assertEqual(self.emp_1.apply_raise, 525000)
-        self.assertEqual(self.emp_2.apply_raise, 210000)
+        self.emp_1.apply_raise()
+        self.emp_2.apply_raise()
+        self.assertEqual(self.emp_1.pay, 525000)
+        self.assertEqual(self.emp_2.pay, 21000)
         
         
 if __name__ == "__main__":
